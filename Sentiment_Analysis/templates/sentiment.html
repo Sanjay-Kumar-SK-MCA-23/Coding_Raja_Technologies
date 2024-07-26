@@ -1,0 +1,165 @@
+{% extends "nav.html" %}
+{% block content %}
+{% load static %}
+    <style>
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: 'Arial', sans-serif;
+      }
+
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background: #f0f2f5;
+      }
+
+      .login-container {
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          width: 400px;
+          max-width: 100%;
+          margin-top: 25em;
+      }
+
+      .login-form {
+          padding: 40px;
+      }
+
+      .login-form h2 {
+          text-align: center;
+          margin-bottom: 20px;
+          color: #333;
+      }
+
+      .input-group {
+          position: relative;
+          margin-bottom: 30px;
+      }
+
+      .input-group input {
+          width: 100%;
+          padding: 10px 10px 10px 0;
+          border: none;
+          border-bottom: 2px solid #ccc;
+          outline: none;
+          background: transparent;
+          font-size: 16px;
+          transition: border-color 0.3s;
+      }
+
+      .input-group input:focus {
+          border-color: #007BFF;
+      }
+
+      .input-group label {
+          position: absolute;
+          top: 10px;
+          left: 0;
+          color: #666;
+          font-size: 16px;
+          pointer-events: none;
+          transition: 0.3s;
+      }
+
+      .input-group input:focus + label,
+      .input-group input:not(:placeholder-shown) + label {
+          top: -20px;
+          left: 0;
+          font-size: 12px;
+          color: #007BFF;
+      }
+
+      .btn {
+          width: 100%;
+          padding: 10px;
+          background: #007BFF;
+          border: none;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.3s;
+      }
+
+      .btn:hover {
+          background: #0056b3;
+      }
+
+      .register-link {
+          text-align: center;
+          margin-top: 20px;
+          color: #333;
+      }
+
+      .register-link a {
+          color: #007BFF;
+          text-decoration: none;
+      }
+
+      .register-link a:hover {
+          text-decoration: underline;
+      }
+    </style>
+    <div class="login-container">
+      <div class="login-form">
+          <h2>Login</h2>
+          <form method="POST">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="text" placeholder="Unnamed:{{unnamed}}" name="unnamed" required>
+              </div>
+              <div class="input-group">
+                <input type="text" placeholder="Texted:{{texted}}" name="texted" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="User:{{user}}" name="user" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Platform:{{platform}}" name="platform" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Hashtags:{{Hashtags}}" name="hashtags" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Retweets:{{Retweets}}" name="retweets" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Likes:{{likes}}" name="likes" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Country:{{country}}" name="country" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Year:{{year}}" name="year" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Month:{{month}}" name="month" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Day:{{day}}" name="day" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Hour:{{hour}}" name="hour" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Sentiment:{{sentiment}}" name="hour" required>
+            </div>
+          </form>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% for i in messages %}
+<script>alert("{{i}}")</script>
+{% endfor %}
+
+{% endblock %}
